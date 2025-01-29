@@ -7,12 +7,10 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 const ProductDetail = ({ params }) => {
-  // Use React.use() to unwrap the params object
-  const { id } = React.use(params); // Unwrap the params to access 'id'
+  const { id } = React.use(params); 
   
   const router = useRouter();
 
-  // State to store product data and related products
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -71,7 +69,7 @@ const ProductDetail = ({ params }) => {
         const related = relatedProductsData[product.category] || [];
         setRelatedProducts(related);
       } else {
-        notFound(); // Redirect to 404 if no product found
+        notFound(); 
       }
     };
 
@@ -79,7 +77,7 @@ const ProductDetail = ({ params }) => {
   }, [id]);
 
   if (!product) {
-    return <p>Loading...</p>; // Show loading state if product data isn't available yet
+    return <p>Loading...</p>; 
   }
 
   const handleRelatedProductClick = (productId) => {
